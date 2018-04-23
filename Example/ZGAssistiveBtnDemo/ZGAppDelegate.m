@@ -7,14 +7,37 @@
 //
 
 #import "ZGAppDelegate.h"
-
+#import "ZGAssistiveBtn.h"
 @implementation ZGAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    //延迟加载VersionBtn - 避免wimdow还没出现就往上加控件造成的crash
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self setVersionBtn];
+    });
     return YES;
 }
+-(void)setVersionBtn
+{
+    CGFloat touchW = 120;
+    CGFloat touchX = 375 - touchW;
+    CGFloat touchY = 43;
+    CGFloat touchH = 49;
+
+    NSString *versionStr = [[[NSBundle
+                              mainBundle]infoDictionary]valueForKey:@"CFBundleShortVersionString"];
+    NSString *buildStr = [[[NSBundle
+                            mainBundle]infoDictionary]valueForKey:@"CFBundleVersion"];
+
+    NSString *title = [NSString stringWithFormat:@"Ver:%@ 测试\nBuild:%@",versionStr,buildStr];
+    CGRect frame = CGRectMake(touchX, touchY, touchW, touchH);
+
+    ZGAssistiveBtn *btn=[ZGAssistiveBtn ZG_touchWithType:ZGAssistiveTouchTypeNone Frame:frame title:title titleColor:[UIColor blackColor] titleFont:[UIFont systemFontOfSize:13] backgroundColor:[UIColor cyanColor] backgroundImage:nil];
+    [self.window addSubview:btn];
+
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
