@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ZGAssistiveBtnDemo_Example' do
+  pod 'ZGAssistiveBtnDemo', :path => '../'
+
+  target 'ZGAssistiveBtnDemo_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
