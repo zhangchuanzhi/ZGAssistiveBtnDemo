@@ -1,0 +1,16 @@
+PODS:
+  - ZGAssistiveBtnDemo (0.1.0)
+
+DEPENDENCIES:
+  - ZGAssistiveBtnDemo (from `../`)
+
+EXTERNAL SOURCES:
+  ZGAssistiveBtnDemo:
+    :path: ../
+
+SPEC CHECKSUMS:
+  ZGAssistiveBtnDemo: 9db73666f8f1b280a96770f5104fad2b1130fc47
+
+PODFILE CHECKSUM: f8325bf6360e790828409bb9636d00bee5784031
+
+COCOAPODS: 1.4.0

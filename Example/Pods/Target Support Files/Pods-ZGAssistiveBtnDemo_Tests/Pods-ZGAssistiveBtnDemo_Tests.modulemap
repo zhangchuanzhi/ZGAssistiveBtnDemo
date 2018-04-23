@@ -1,0 +1,6 @@
+framework module Pods_ZGAssistiveBtnDemo_Tests {
+  umbrella header "Pods-ZGAssistiveBtnDemo_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

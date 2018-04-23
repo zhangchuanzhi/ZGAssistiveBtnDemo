@@ -1,0 +1,6 @@
+framework module ZGAssistiveBtnDemo {
+  umbrella header "ZGAssistiveBtnDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
